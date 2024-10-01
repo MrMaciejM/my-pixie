@@ -1,5 +1,7 @@
 import os 
-from flask import Flask
+from flask import Flask, jsonify, render_template
+import psycopg2
+from datetime import datetime
 
 # create_app is the application factory function 
 
@@ -24,10 +26,53 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page 
-    @app.route('/hello')
-    def hello():
-        return 'Hellow'
+
+    #  user: “postgres”,
+    #  host: “localhost”,
+    #  database: “pixie-db”,
+    #  password: “admin”
+
+    def get_db_connection():
+         conn = psycopg2.connect(host='localhost',
+                                 database='pixie-db',
+                                 user='postgres',
+                                 password='admin'                                 
+                                 )
+         return conn
+
+
+    # a simple page / return test data for now
+    @app.route('/home')
+    def fetch_data():      
+           
+           conn = get_db_connection()
+           cur = conn.cursor()
+           cur.execute('SELECT time_posted FROM posts;')
+           posts = cur.fetchall()
+           
+           curUser = conn.cursor()
+           curUser.execute('SELECT username FROM users')
+           postsUser = curUser.fetchall()
+
+
+           cur.close()
+           curUser.close()
+           
+           conn.close()
+
+           print(posts)
+           print(postsUser)
+
+           formatted_posts = [{'date_posted': post[0].isoformat() if post[0] is not None else None} for post in posts]
+
+           formatted_users = {'username': postsUser}
+
+           return jsonify(formatted_posts, formatted_users) 
+
+        # return {
+        #     "author": "maciej",
+        #     "data": "dev"
+        # }
     
     from . import db
     db.init_app(app)

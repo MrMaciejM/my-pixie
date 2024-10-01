@@ -1,9 +1,30 @@
 body{
     height: 1500px; 
-    background-color: #f8f8f8 !important;
+    background-color: #f0f0f0 !important;
 }
 
 .aaa {
     border: solid 2px blue; 
+    padding: 1rem;
 }
 
+button {
+    width: 30% !important;
+    margin: 0.8rem auto !important;
+    border: solid 1px transparent;
+    background-color: lightblue;
+    border-radius: 11px !important;
+    
+}
+.deleteBtn {
+    width: 30% !important;
+    margin: 0.8rem auto !important;
+    border: solid 1px transparent;
+    color: white;
+    background-color: #e10101;
+    /* border-radius: 11px !important; */
+}
+
+.navContainer a{
+    color: #f0f0f0 !important
+}
