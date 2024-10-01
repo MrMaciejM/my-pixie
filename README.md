@@ -78,6 +78,6 @@ Successful fetch of the filtered time and username from the PostgreSQL database
 
 ## Updates
 
-    [ 02/Oct/2024 ]
+[ 02/Oct/2024 ]
 
-    Due to personal and family matters I was unable to look further into this project since I started working on it around 7 months ago and had to postpone it. Currently my focus and time is required elsewhere, however, I'll try to dedicate whatever time I have available to make little progress or at least send updates to this README file.
+Due to personal and family matters I was unable to look further into this project since I started working on it around 7 months ago and had to postpone it. Currently my focus and time is required elsewhere, however, I'll try to dedicate whatever time I have available to make little progress or at least send updates to this README file.
