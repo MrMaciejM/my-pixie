@@ -19,6 +19,7 @@ function Main() {
     useEffect(() => {
         fetch("/home").then((res) =>
             // convert to JSON format 
+        //
             res.json().then((data) => {
                 console.log(data);
                 // filter time data e.g. 18:30
